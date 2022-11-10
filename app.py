@@ -1,13 +1,27 @@
-from flask import Flask, jsonify, render_template, request, wrappers
+import os
+from flask import Flask, jsonify, send_from_directory, request, wrappers
+
 import src.recognize as recognize
 import asyncio
 
-app = Flask(__name__, template_folder="./templates")
+app = Flask(
+    __name__,
+    static_folder="web/build",
+)
 
 
-@app.route("/")
-def index():
-    return render_template("index.html")
+@app.route("/", defaults={"path": ""})
+@app.route("/<path:path>")
+def serve(path):
+    if path != "" and os.path.exists(app.static_folder + "/" + path):
+        return send_from_directory(app.static_folder, path)
+    else:
+        return send_from_directory(app.static_folder, "index.html")
+
+
+# @app.route("/")
+# def index():
+#     return render_template("./index.html")
 
 
 @app.route("/webcam", methods=["POST"])
