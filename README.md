@@ -14,10 +14,10 @@ Project could be further developed in the future
 ## Project Screenshots
 
 - Front-end page
-  ![page](./Screenshots/website.png)
+  ![page](https://raw.githubusercontent.com/OOlong20/Hamabead-Framework/master/screenshots/website.png)
 
 - Recognize result
-  ![result](./Screenshots/result.jpeg)
+  ![result](https://raw.githubusercontent.com/OOlong20/Hamabead-Framework/master/screenshots/result.jpeg)
 
 ## Installation
 
